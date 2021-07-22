@@ -14,4 +14,6 @@ public interface IEmployeeService {
 
 	void deleteEmployee(Integer id);
 
+	EmployeeModel getEmployeeById(int id);
+
 }

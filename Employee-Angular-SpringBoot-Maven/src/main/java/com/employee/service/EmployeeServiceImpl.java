@@ -19,6 +19,17 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	private @Autowired IEmployeeDao employeeDao;
 
 	@Override
+	public EmployeeModel getEmployeeById(int id) {
+		log.info("@getEmployeeById invoked with employeeId : {}", id);
+		Optional<EmployeeModel> employeeById = employeeDao.findById(id);
+		EmployeeModel employeeModel = null;
+		if (employeeById.isPresent()) {
+			employeeModel = employeeById.get();
+		}
+		return employeeModel;
+	}
+
+	@Override
 	public List<EmployeeModel> getAllEmployee() {
 		log.info("@getAllEmployee invoked");
 		return employeeDao.findAll();

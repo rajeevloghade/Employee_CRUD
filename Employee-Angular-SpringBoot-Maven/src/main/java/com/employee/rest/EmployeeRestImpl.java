@@ -33,6 +33,13 @@ public class EmployeeRestImpl implements IEmployeeRest {
 		return "Hello";
 	}
 
+	@GetMapping("getEmployeeById/{id}")
+	@Override
+	public EmployeeModel getEmployeeById(@PathVariable("id") Integer id) {
+		log.trace("@getAllEmployee invoked");
+		return employeeService.getEmployeeById(id);
+	}
+
 	@GetMapping("getAllEmployee")
 	@Override
 	public List<EmployeeModel> getAllEmployee() {
@@ -60,12 +67,11 @@ public class EmployeeRestImpl implements IEmployeeRest {
 		log.trace("@deleteEmployee invoked with employeeId : {}", id);
 		employeeService.deleteEmployee(id);
 	}
-	
+
 	@DeleteMapping("deleteDemo/{id}")
 	public void deleteDemo(@PathVariable("id") Integer id) {
 		log.trace("@deleteEmployee invoked with employeeId : {}", id);
 		employeeService.deleteEmployee(id);
 	}
-	
 
 }
