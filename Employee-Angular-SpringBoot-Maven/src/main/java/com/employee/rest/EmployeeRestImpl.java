@@ -36,7 +36,7 @@ public class EmployeeRestImpl implements IEmployeeRest {
 	@GetMapping("getEmployeeById/{id}")
 	@Override
 	public EmployeeModel getEmployeeById(@PathVariable("id") Integer id) {
-		log.trace("@getAllEmployee invoked");
+		log.trace("@getEmployeeById invoked with employeeId : {}", id);
 		return employeeService.getEmployeeById(id);
 	}
 
